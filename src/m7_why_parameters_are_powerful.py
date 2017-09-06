@@ -11,8 +11,10 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     test_draw_circles()
+    test_better_draw_circles()
+    test_even_better_draw_circles()
     # Un-comment the next lines when you are ready to use them.
-    # test_better_draw_circles()
+    #test_better_draw_circles()
     # test_even_better_draw_circles()
 
 
@@ -64,7 +66,7 @@ def draw_circles():
     window.close_on_mouse_click()
 
 # ----------------------------------------------------------------------
-# TODO: 2.
+# DONE: 2.
 #   First, RUN this program.  You will see that draw_circles draws
 #   concentric circles whose radii vary by 10.
 #
@@ -94,8 +96,23 @@ def draw_circles():
 # ----------------------------------------------------------------------
 
 
+def test_better_draw_circles():
+        better_draw_circles(10)
+
+
+def better_draw_circles(radii):
+        window = rg.RoseWindow(400,400)
+        for k in range(21):
+            rad = 0
+            rad = radii* k
+            cir1 = rg.Circle(rg.Point(200, 200), rad)
+            cir1.attach_to(window)
+            window.render(0.05)
+        window.close_on_mouse_click()
+
+
 # ----------------------------------------------------------------------
-# TODO: 3.
+# DONE: 3.
 #   In the previous exercise, you made a MORE POWERFUL version
 #   of draw_circles by introducing a PARAMETER for the amount by
 #   which the radii of the concentric circles increase.
@@ -122,6 +139,21 @@ def draw_circles():
 #   In testing your even_better_draw_circles function,
 #   can you make some fun pictures?
 # ----------------------------------------------------------------------
+def test_even_better_draw_circles():
+
+    even_better_draw_circles(15,20,rg.Point(200, 100))
+
+
+def even_better_draw_circles(vrad,cirnum,center):
+    window = rg.RoseWindow(400, 400)
+    for k in range(cirnum):
+        rad = 0
+        rad = vrad * k
+        cir1 = rg.Circle(center, rad)
+        cir1.attach_to(window)
+        window.render(0.05)
+    window.close_on_mouse_click()
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
