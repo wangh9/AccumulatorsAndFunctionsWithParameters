@@ -10,14 +10,27 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 """  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-
+import math
 
 def main():
+    print_sequence1()
+    draw_circles1()
+    print_sequence2()
+    draw_circles2()
+    print_sequence3()
+    draw_circles3()
+    print_cosines()
+    draw_cosines_and_sines()
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
 
 
 def print_sequence1():
+    c = 0
+    for k in range(20):
+       c = c + 10
+       print(c)
+
     """
     Prints:
        0
@@ -29,7 +42,7 @@ def print_sequence1():
        200
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its doc-string above.
+    # DONE: 2. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
@@ -40,6 +53,14 @@ def print_sequence1():
 
 
 def draw_circles1():
+    window = rg.RoseWindow(400,400)
+    for k in range(20):
+        rad = 0
+        rad = 10 * k
+        cir1 = rg.Circle(rg.Point(200, 200), rad)
+        cir1.attach_to(window)
+        window.render(0.05)
+    window.close_on_mouse_click()
     """
     -- Constructs an rg.RoseWindow whose width and height are both 400.
     -- Constructs and draws 21 rg.Circle objects such that:
@@ -48,7 +69,7 @@ def draw_circles1():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its doc-string above.
+    # DONE: 3. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
@@ -59,6 +80,11 @@ def draw_circles1():
 
 
 def print_sequence2():
+    c = 50
+    for k in range(17):
+        c = c + 20
+        print(c)
+
     """
     Prints:
       50
@@ -70,7 +96,7 @@ def print_sequence2():
       390.
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this function, per its doc-string above.
+    # DONE: 4. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
@@ -81,6 +107,15 @@ def print_sequence2():
 
 
 def draw_circles2():
+    window = rg.RoseWindow(400, 400)
+    x =50
+    for k in range(17):
+        cir1 = rg.Circle(rg.Point(x, 100), 10)
+        cir1.fill_color = 'blue'
+        cir1.attach_to(window)
+        window.render(0.05)
+        x = x + 50
+    window.close_on_mouse_click()
     """
     -- Constructs an rg.RoseWindow whose width and height are both 400.
     -- Constructs and draws rg.Circle objects such that:
@@ -91,7 +126,7 @@ def draw_circles2():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement this function, per its doc-string above.
+    # DONE: 5. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
@@ -102,6 +137,10 @@ def draw_circles2():
 
 
 def print_sequence3():
+    c = 0
+    for k in range(100):
+        c = c + 1
+        print(c)
     """
     Prints:
       1
@@ -112,7 +151,7 @@ def print_sequence3():
       100.
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this function, per its doc-string above.
+    # DONE: 6. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
@@ -123,6 +162,14 @@ def print_sequence3():
 
 
 def draw_circles3():
+    window = rg.RoseWindow(300, 300)
+    x = 1
+    for k in range(100):
+        cir1 = rg.Circle(rg.Point(200, 150), x)
+        cir1.attach_to(window)
+        window.render(0.05)
+        x = x + 1
+    window.close_on_mouse_click()
     """
     -- Constructs an rg.RoseWindow whose width and height are both 300.
     -- Constructs and draws 100 rg.Circle objects such that:
@@ -131,7 +178,7 @@ def draw_circles3():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement this function, per its doc-string above.
+    # DONE: 7. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
@@ -142,6 +189,12 @@ def draw_circles3():
 
 
 def print_cosines():
+    c = 0
+    for k in range(100):
+        print(math.cos(c)* 80)
+        c = c + 1
+
+
     """
     For each of the integers 0  1  2  ... 100,
     prints 80 times the cosine of that integer.
@@ -160,7 +213,7 @@ def print_cosines():
        68.9855097830147
     """
     # ------------------------------------------------------------------
-    # TODO: 8. Implement this function, per its doc-string above.
+    # DONE: 8. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     #
@@ -178,6 +231,16 @@ def print_cosines():
 
 
 def draw_cosines_and_sines():
+    window = rg.RoseWindow(400, 400)
+    x = 0
+    y = 0
+    for k in range(100):
+        x = 200 + (80* math.cos(k))
+        y = 200 + (80*math.sin(k))
+        cir1 = rg.Circle(rg.Point(x, y), 10)
+        cir1.attach_to(window)
+        window.render(0.05)
+    window.close_on_mouse_click()
     """
     -- Constructs a window whose width and height are both 400.
     -- Constructs and draws rg.Circle objects such that:
@@ -192,7 +255,7 @@ def draw_cosines_and_sines():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement this function, per its doc-string above.
+    # DONE: 9. Implement this function, per its doc-string above.
     # Put a statement in  main  to test this function.
     # REQUIREMENT: You must use a   RANGE  statement to solve this problem.
     # ------------------------------------------------------------------
